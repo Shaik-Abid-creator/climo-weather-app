@@ -11,11 +11,11 @@
 ### Step 1: Open the Project
 
 ```bash
-cd climo-android
+cd <project-root>
 ```
 
 Open with Android Studio:
-- File → Open → Select the `climo-android` folder
+- File → Open → Select the project root folder
 - Wait for Gradle sync to complete
 
 ### Step 2: Build
@@ -111,8 +111,8 @@ suspend fun getWeather(...): WeatherResponse
 GET https://api.open-meteo.com/v1/forecast
   ?latitude=40.7128
   &longitude=-74.0060
-  &current=temperature,humidity,weather_code,wind_speed_10m
-  &daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max
+  &current=temperature,relative_humidity,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,wind_direction_10m
+  &daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max
   &timezone=auto
 ```
 

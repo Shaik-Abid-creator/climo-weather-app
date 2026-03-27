@@ -29,7 +29,7 @@ A modern, production-ready Android weather application built with **Jetpack Comp
 ## Project Structure
 
 ```
-climo-android/
+<project-root>/
 ├── app/
 │   ├── src/main/
 │   │   ├── java/com/climo/weather/
@@ -99,11 +99,11 @@ climo-android/
 
 1. **Clone or extract the project**:
    ```bash
-   cd climo-android
+   cd <project-root>
    ```
 
 2. **Open in Android Studio**:
-   - File → Open → Select the `climo-android` folder
+   - File → Open → Select the project root folder
    - Android Studio will automatically sync Gradle dependencies
 
 3. **Build the APK**:
@@ -128,6 +128,21 @@ climo-android/
 ./gradlew test               # Run unit tests
 ./gradlew connectedAndroidTest  # Run instrumented tests
 ```
+
+### Release Readiness
+
+Before shipping, follow `DEPLOYMENT_CHECKLIST.md` for environment setup, quality gates, and rollout checks.
+
+For release signing, copy `keystore.properties.example` to `keystore.properties` and provide your real keystore values (the real file is gitignored).
+
+For local release verification, run:
+
+```bash
+./scripts/release_build.sh
+```
+
+For CI release artifacts, use the manual workflow: `.github/workflows/android-release.yml`.
+Secret setup details are documented in `docs/deployment/RELEASE_SECRETS.md`.
 
 ## API Integration
 

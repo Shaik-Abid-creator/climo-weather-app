@@ -14,10 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
@@ -47,6 +45,7 @@ import com.climo.weather.model.DailyWeather
 import com.climo.weather.model.getWeatherDescription
 import com.climo.weather.model.getWeatherIcon
 import com.climo.weather.model.toDailyWeatherList
+import com.climo.weather.util.parseCoordinateInput
 import com.climo.weather.util.WeatherState
 import com.climo.weather.viewmodel.WeatherViewModel
 
@@ -357,6 +356,7 @@ private fun ForecastCard(dailyWeather: DailyWeather) {
 private fun SearchCoordinatesSection(viewModel: WeatherViewModel) {
     var latitude by remember { mutableStateOf("40.7128") }
     var longitude by remember { mutableStateOf("-74.0060") }
+    var coordinateError by remember { mutableStateOf<String?>(null) }
 
     Card(
         modifier = Modifier
@@ -385,7 +385,7 @@ private fun SearchCoordinatesSection(viewModel: WeatherViewModel) {
                 onValueChange = { latitude = it },
                 label = { Text("Latitude") },
                 modifier = Modifier.fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                 shape = RoundedCornerShape(8.dp)
             )
 
@@ -394,15 +394,21 @@ private fun SearchCoordinatesSection(viewModel: WeatherViewModel) {
                 onValueChange = { longitude = it },
                 label = { Text("Longitude") },
                 modifier = Modifier.fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                 shape = RoundedCornerShape(8.dp)
             )
 
             Button(
                 onClick = {
-                    val lat = latitude.toDoubleOrNull() ?: 40.7128
-                    val lon = longitude.toDoubleOrNull() ?: -74.0060
-                    viewModel.updateCoordinates(lat, lon)
+                    val lat = parseCoordinateInput(latitude, min = -90.0, max = 90.0)
+                    val lon = parseCoordinateInput(longitude, min = -180.0, max = 180.0)
+
+                    if (lat == null || lon == null) {
+                        coordinateError = "Enter valid coordinates (lat: -90..90, lon: -180..180)"
+                    } else {
+                        coordinateError = null
+                        viewModel.updateCoordinates(lat, lon)
+                    }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -420,6 +426,14 @@ private fun SearchCoordinatesSection(viewModel: WeatherViewModel) {
                         .padding(end = 8.dp)
                 )
                 Text("Search", fontSize = 16.sp)
+            }
+
+            coordinateError?.let { error ->
+                Text(
+                    text = error,
+                    color = MaterialTheme.colorScheme.error,
+                    fontSize = 12.sp
+                )
             }
         }
     }

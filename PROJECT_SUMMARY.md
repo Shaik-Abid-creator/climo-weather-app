@@ -96,7 +96,7 @@ Climo is a **production-ready native Android weather application** built with **
 ### 1. Open in Android Studio
 
 ```bash
-cd climo-android
+cd <project-root>
 # Open with Android Studio (File → Open)
 ```
 
@@ -242,7 +242,7 @@ fun testWeatherViewModelFetchWeather() {
 ## File Structure
 
 ```
-climo-android/
+<project-root>/
 ├── app/
 │   ├── src/main/
 │   │   ├── java/com/climo/weather/
