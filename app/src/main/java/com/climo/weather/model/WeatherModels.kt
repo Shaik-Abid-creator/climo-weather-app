@@ -65,7 +65,16 @@ data class DailyWeather(
 )
 
 fun DailyForecast.toDailyWeatherList(): List<DailyWeather> {
-    return time.indices.map { index ->
+    val safeSize = minOf(
+        time.size,
+        weatherCode.size,
+        temperatureMax.size,
+        temperatureMin.size,
+        precipitationSum.size,
+        precipitationProbabilityMax.size
+    )
+
+    return (0 until safeSize).map { index ->
         DailyWeather(
             date = time[index],
             weatherCode = weatherCode[index],
