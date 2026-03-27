@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Features</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-line {
+            width: 60px;
+            height: 4px;
+            background: #0284C7;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            flex: 1;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .feature {
+            border-left: 4px solid #0284C7;
+            padding-left: 24px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        .feature-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: #0284C7;
+            color: #FFFFFF;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #0284C7;
+            top: -80px;
+            right: -80px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .geometric-accent-2 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: #0284C7;
+            bottom: 40px;
+            right: 40px;
+            opacity: 0.04;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-accent"></div>
+        <div class="geometric-accent-2"></div>
+        
+        <div class="header">
+            <h1 class="title">Core Features</h1>
+            <div class="subtitle-line"></div>
+        </div>
+
+        <div class="content">
+            <div class="feature">
+                <div class="feature-title">✓ Real-time Weather Dashboard</div>
+                <div class="feature-description">
+                    Current temperature, humidity, wind speed, and weather conditions with emoji icons. Displays "feels like" temperature and detailed weather metrics.
+                </div>
+                <span class="feature-badge">Live Data</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-title">✓ 7-Day Forecast</div>
+                <div class="feature-description">
+                    Scrollable forecast cards showing high/low temperatures, precipitation probability, and weather descriptions for the next week.
+                </div>
+                <span class="feature-badge">Extended Forecast</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-title">✓ Coordinate Search</div>
+                <div class="feature-description">
+                    Input latitude and longitude to fetch weather for any location worldwide. Form validation and instant weather updates.
+                </div>
+                <span class="feature-badge">Location Search</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-title">✓ Modern Design</div>
+                <div class="feature-description">
+                    Material 3 dark theme with rounded corners, clean typography, system-aware theming, and responsive layout for all screen sizes.
+                </div>
+                <span class="feature-badge">Material 3</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

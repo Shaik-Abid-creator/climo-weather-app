@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material 3 Theme</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .slide-container {
+            width: 1280px;
+            min-height: 720px; /* keep per requirements */
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding-top: 60px; /* must not be changed */
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-line { width: 60px; height: 4px; background: #0284C7; margin-bottom: 40px; }
+
+        /* Reduced vertical spacing and tighter layout to fit under target height */
+        .content {
+            flex: 1;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 12px; /* shrank from 20 -> 12 (allowed) */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px; /* reduced from 32 -> 20 */
+        }
+
+        .theme-section { display: flex; flex-direction: column; gap: 16px; }
+
+        .theme-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 0; /* removed extra margin to save 8px */
+        }
+
+        .color-swatch { border: 2px solid #111827; padding: 0; overflow: hidden; display: flex; height: 100px; }
+        .swatch-color { flex: 1; display: flex; align-items: flex-end; justify-content: flex-end; padding: 12px; }
+        .swatch-info { flex: 1; padding: 12px; background: #F9FAFB; display: flex; flex-direction: column; justify-content: center; }
+
+        .swatch-name { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; font-weight: 700; color: #111827; margin-bottom: 4px; }
+        .swatch-hex { font-family: 'Monaco', 'Courier New', monospace; font-size: 12px; font-weight: 600; color: #0284C7; }
+        .swatch-usage { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 11px; font-weight: 400; color: #374151; margin-top: 2px; }
+
+        .features-box {
+            border: 2px solid #111827;
+            padding: 8px; /* reduced from 16 -> 8 */
+            background: #F9FAFB;
+            grid-column: 1 / -1;
+            margin-top: 12px; /* kept modest spacing */
+        }
+
+        .features-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #0284C7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.5;
+            margin-bottom: 6px; /* reduced from 8 -> 6 */
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-item:before { content: "✓"; position: absolute; left: 0; color: #0284C7; font-weight: 700; }
+
+        .feature-item:last-child { margin-bottom: 0; }
+
+        .geometric-accent { position: absolute; width: 250px; height: 250px; background: #0284C7; bottom: -60px; left: -60px; opacity: 0.05; z-index: 0; }
+        .geometric-accent-2 { position: absolute; width: 180px; height: 180px; background: #0284C7; top: 100px; right: -80px; opacity: 0.04; z-index: 0; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-accent"></div>
+        <div class="geometric-accent-2"></div>
+
+        <div class="header">
+            <h1 class="title">Material 3 Theme</h1>
+            <div class="subtitle-line"></div>
+        </div>
+
+        <div class="content">
+            <div class="theme-section">
+                <div class="theme-title">🌙 Dark Mode</div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #00D4FF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Primary</div>
+                        <div class="swatch-hex">#00D4FF</div>
+                        <div class="swatch-usage">Accent & tint</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #FFBB6A;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Secondary</div>
+                        <div class="swatch-hex">#FFBB6A</div>
+                        <div class="swatch-usage">Highlights</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #7CDFBF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Tertiary</div>
+                        <div class="swatch-hex">#7CDFBF</div>
+                        <div class="swatch-usage">Success states</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="theme-section">
+                <div class="theme-title">☀️ Light Mode</div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #0284C7;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Primary</div>
+                        <div class="swatch-hex">#0284C7</div>
+                        <div class="swatch-usage">Accent & tint</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #EA580C;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Secondary</div>
+                        <div class="swatch-hex">#EA580C</div>
+                        <div class="swatch-usage">Highlights</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #10B981;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Tertiary</div>
+                        <div class="swatch-hex">#10B981</div>
+                        <div class="swatch-usage">Success states</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-box">
+                <div class="features-title">Material 3 Features</div>
+                <div class="feature-item">System-aware theming with automatic light/dark mode detection</div>
+                <div class="feature-item">Dynamic colors support for Android 12+ devices</div>
+                <div class="feature-item">Accessible color contrasts for WCAG compliance</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

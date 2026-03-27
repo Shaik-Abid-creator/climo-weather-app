@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extending the App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-line {
+            width: 60px;
+            height: 4px;
+            background: #0284C7;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            flex: 1;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px; /* reduced from 24 to save vertical space */
+            overflow-y: auto;
+        }
+
+        .enhancement-box {
+            border: 2px solid #111827;
+            padding: 12px; /* reduced from 20 */
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .enhancement-icon {
+            font-size: 36px;
+            margin-bottom: 6px; /* reduced from 12 */
+        }
+
+        .enhancement-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .enhancement-description {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-benefits {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 4px; /* reduced from 6 */
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-bullet {
+            color: #0284C7;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .code-snippet {
+            border: 1px solid #E5E7EB;
+            padding: 8px;
+            background: #F9FAFB;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 10px;
+            color: #374151;
+            margin-top: 4px; /* reduced from 8 */
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #0284C7;
+            bottom: -60px;
+            left: -60px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .geometric-accent-2 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #0284C7;
+            top: 100px;
+            right: -80px;
+            opacity: 0.04;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-accent"></div>
+        <div class="geometric-accent-2"></div>
+        
+        <div class="header">
+            <h1 class="title">Extending the App</h1>
+            <div class="subtitle-line"></div>
+        </div>
+
+        <div class="content">
+            <div class="enhancement-box">
+                <div class="enhancement-icon">💉</div>
+                <div class="enhancement-title">Hilt Dependency Injection</div>
+                <div class="enhancement-description">
+                    Reduce boilerplate code and improve testability with automatic dependency injection.
+                </div>
+                <div class="enhancement-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Eliminate manual object creation</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Easier unit testing with mocks</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Compile-time safety checks</span>
+                    </div>
+                </div>
+                <div class="code-snippet">@HiltViewModel
+class WeatherViewModel @Inject constructor(
+    private val repository: WeatherRepository
+) : ViewModel()</div>
+            </div>
+
+            <div class="enhancement-box">
+                <div class="enhancement-icon">📍</div>
+                <div class="enhancement-title">Location Services</div>
+                <div class="enhancement-description">
+                    Auto-detect user location and fetch weather automatically on app launch.
+                </div>
+                <div class="enhancement-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Request location permissions</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Real-time location tracking</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Fallback to manual search</span>
+                    </div>
+                </div>
+                <div class="code-snippet">val location = LocationServices
+    .getFusedLocationProviderClient(context)
+    .lastLocation</div>
+            </div>
+
+            <div class="enhancement-box">
+                <div class="enhancement-icon">💾</div>
+                <div class="enhancement-title">Local Caching with Room</div>
+                <div class="enhancement-description">
+                    Store weather data locally for offline access and improved performance.
+                </div>
+                <div class="enhancement-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Offline weather access</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Timestamp-based invalidation</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Faster app startup</span>
+                    </div>
+                </div>
+                <div class="code-snippet">@Entity
+data class CachedWeather(
+    @PrimaryKey val id: Int,
+    val data: WeatherResponse,
+    val timestamp: Long
+)</div>
+            </div>
+
+            <div class="enhancement-box">
+                <div class="enhancement-icon">✅</div>
+                <div class="enhancement-title">Unit Tests</div>
+                <div class="enhancement-description">
+                    Add comprehensive test coverage for ViewModel, Repository, and UI layers.
+                </div>
+                <div class="enhancement-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>ViewModel state tests</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>Repository mock tests</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-bullet">•</span>
+                        <span>UI composable tests</span>
+                    </div>
+                </div>
+                <div class="code-snippet">@Test
+fun testWeatherFetch() {
+    viewModel.fetchWeather(40.7, -74.0)
+    assertEquals(WeatherState.Success, 
+        viewModel.weatherState.value)
+}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+{
+  "project_info": {
+    "title": "Climo Weather App",
+    "created": 1774612926.1211708,
+    "last_updated": 1774613482.6472967,
+    "total_slides": 17
+  },
+  "slides": [
+    {
+      "id": "title_slide",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "overview",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "features",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "architecture",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "tech_stack",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "project_structure",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "data_models",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "network_integration",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "state_management",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "ui_components",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "material3_theme",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "building_deployment",
+      "state": "edited",
+      "pageNum": 12
+    },
+    {
+      "id": "error_handling",
+      "state": "edited",
+      "pageNum": 13
+    },
+    {
+      "id": "code_quality",
+      "state": "edited",
+      "pageNum": 14
+    },
+    {
+      "id": "extending_app",
+      "state": "edited",
+      "pageNum": 15
+    },
+    {
+      "id": "key_takeaways",
+      "state": "edited",
+      "pageNum": 16
+    },
+    {
+      "id": "thank_you",
+      "state": "edited",
+      "pageNum": 17
+    }
+  ],
+  "outline": [
+    {
+      "id": "title_slide",
+      "title": "Climo Weather App",
+      "summary": "Production-ready native Android weather application built with Jetpack Compose and Kotlin, demonstrating modern Android development best practices.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "overview",
+      "title": "Project Overview",
+      "summary": "Climo is a modern weather app with MVVM architecture, Jetpack Compose UI, reactive StateFlow state management, and free Open-Meteo API integration.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "features",
+      "title": "Core Features",
+      "summary": "Real-time weather dashboard, 7-day forecast, coordinate search functionality, Material 3 dark theme, error handling, and loading states.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "architecture",
+      "title": "MVVM Architecture",
+      "summary": "Clean separation of concerns with UI layer, ViewModel, Repository, Network layer, and Open-Meteo API integration.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "tech_stack",
+      "title": "Technology Stack",
+      "summary": "Kotlin 1.9.22, Jetpack Compose, Retrofit 2.10.0, OkHttp 4.12.0, Kotlinx Serialization, Material 3, StateFlow, Gradle 8.2.0, Android API 24-34.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "project_structure",
+      "title": "Project Structure",
+      "summary": "Complete file organization with 11 Kotlin files, 5 XML configurations, 3 Gradle build files, organized by layers: model, network, repository, viewmodel, ui, util.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "data_models",
+      "title": "Data Models",
+      "summary": "Kotlin data classes for WeatherResponse, CurrentWeather, DailyForecast with helper functions for weather descriptions and emoji icons.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "network_integration",
+      "title": "Network Integration",
+      "summary": "Retrofit service interface for Open-Meteo API with Kotlinx Serialization, OkHttp configuration, 30-second timeouts, and no API key requirement.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "state_management",
+      "title": "State Management",
+      "summary": "WeatherState sealed class with Loading, Success, Error states. ViewModel with StateFlow for reactive state management and coordinate updates.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "ui_components",
+      "title": "UI Components",
+      "summary": "Jetpack Compose composables including WeatherScreen, LoadingScreen, SuccessScreen, ErrorScreen, CurrentWeatherCard, ForecastCard, and SearchCoordinatesSection.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "material3_theme",
+      "title": "Material 3 Theme",
+      "summary": "Dark and light color schemes with Material 3 design system, system-aware theming, dynamic colors for Android 12+, and custom typography scales.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "building_deployment",
+      "title": "Building & Deployment",
+      "summary": "Prerequisites, quick build commands, run on device/emulator, release APK generation, and default New York City location.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "error_handling",
+      "title": "Error Handling",
+      "summary": "Result wrapper pattern, handling network errors, invalid coordinates, timeouts, serialization errors, with user-friendly error messages and retry functionality.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "code_quality",
+      "title": "Code Quality",
+      "summary": "Type safety, reactive programming with StateFlow, performance optimization with memoization and LazyColumn, testability with dependency injection ready.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "extending_app",
+      "title": "Extending the App",
+      "summary": "Add Hilt DI, location services, local caching with Room, unit tests, and additional features to enhance the application.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "key_takeaways",
+      "title": "Key Takeaways",
+      "summary": "Complete production-ready app, modern MVVM architecture, Jetpack Compose UI, reactive state management, comprehensive documentation, ready to deploy.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "thank_you",
+      "title": "Thank You",
+      "summary": "Climo Weather App - production-ready native Android application built with Jetpack Compose, Material 3, Kotlin, StateFlow, and Open-Meteo API.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}

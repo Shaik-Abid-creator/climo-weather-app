@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Climo" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="android:colorForeground">@color/md_theme_light_on_background</item>
+    </style>
+
+</resources>

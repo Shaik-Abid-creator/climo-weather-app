@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Stack</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding-top: 60px; /* keep upper padding of the title */
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-line {
+            width: 60px;
+            height: 4px;
+            background: #0284C7;
+            margin-bottom: 24px; /* reduced from 40px to save vertical space */
+        }
+
+        .content {
+            flex: 1;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 12px; /* reduced from 20px */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #111827;
+        }
+
+        .tech-table thead { background: #F9FAFB; }
+
+        .tech-table th {
+            border: 2px solid #111827;
+            padding: 8px 10px; /* reduced vertical padding to compress row height */
+            text-align: left;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            color: #0284C7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-table td {
+            border: 2px solid #111827;
+            padding: 8px 10px; /* reduced from 16px to save space */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .tech-table tr:nth-child(even) { background: #F9FAFB; }
+
+        .component-name { font-weight: 600; color: #111827; }
+
+        .version-badge {
+            display: inline-block;
+            background: #0284C7;
+            color: #FFFFFF;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #0284C7;
+            bottom: -60px;
+            right: -60px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .geometric-accent-2 {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #0284C7;
+            top: 100px;
+            right: 60px;
+            opacity: 0.04;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-accent"></div>
+        <div class="geometric-accent-2"></div>
+        
+        <div class="header">
+            <h1 class="title">Technology Stack</h1>
+            <div class="subtitle-line"></div>
+        </div>
+
+        <div class="content">
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Technology</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="component-name">Language</span></td>
+                        <td>Kotlin</td>
+                        <td>1.9.22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">UI Framework</span></td>
+                        <td>Jetpack Compose</td>
+                        <td>Latest (BOM)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">Networking</span></td>
+                        <td>Retrofit</td>
+                        <td>2.10.0</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">HTTP Client</span></td>
+                        <td>OkHttp</td>
+                        <td>4.12.0</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">Serialization</span></td>
+                        <td>Kotlinx Serialization</td>
+                        <td>1.6.2</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">Design System</span></td>
+                        <td>Material 3</td>
+                        <td>1.2.0</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">State Management</span></td>
+                        <td>StateFlow</td>
+                        <td>Kotlin Coroutines</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">Build Tool</span></td>
+                        <td>Gradle</td>
+                        <td>8.2.0</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">Minimum SDK</span></td>
+                        <td>Android</td>
+                        <td>API 24 (7.0)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="component-name">Target SDK</span></td>
+                        <td>Android</td>
+                        <td>API 34 (14)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

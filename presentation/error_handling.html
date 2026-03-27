@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-line {
+            width: 60px;
+            height: 4px;
+            background: #0284C7;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            flex: 1;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .code-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .code-label {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #0284C7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .code-block {
+            border: 2px solid #111827;
+            padding: 16px;
+            background: #F9FAFB;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 11px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.6;
+            overflow-x: auto;
+            min-height: 240px;
+        }
+
+        .error-scenarios {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .scenarios-label {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #0284C7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .error-box {
+            border: 2px solid #111827;
+            padding: 12px;
+            background: #FFFFFF;
+        }
+
+        .error-box.critical {
+            border-left: 4px solid #EF4444;
+        }
+
+        .error-box.warning {
+            border-left: 4px solid #F59E0B;
+        }
+
+        .error-box.info {
+            border-left: 4px solid #0284C7;
+        }
+
+        .error-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .error-description {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.4;
+        }
+
+        .error-feedback {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            color: #0284C7;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .keyword {
+            color: #0284C7;
+            font-weight: 600;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #0284C7;
+            bottom: -60px;
+            left: -60px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .geometric-accent-2 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #0284C7;
+            top: 100px;
+            right: -80px;
+            opacity: 0.04;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-accent"></div>
+        <div class="geometric-accent-2"></div>
+        
+        <div class="header">
+            <h1 class="title">Error Handling</h1>
+            <div class="subtitle-line"></div>
+        </div>
+
+        <div class="content">
+            <div class="code-section">
+                <div class="code-label">Result Wrapper Pattern</div>
+                <div class="code-block"><span class="keyword">sealed class</span> Result&lt;out T&gt; {
+    <span class="keyword">data class</span> Success&lt;T&gt;(
+        <span class="keyword">val</span> data: T
+    ) : Result&lt;T&gt;()
+    
+    <span class="keyword">data class</span> Error(
+        <span class="keyword">val</span> exception: String
+    ) : Result&lt;Nothing&gt;()
+    
+    <span class="keyword">object</span> Loading : Result&lt;Nothing&gt;()
+}</div>
+            </div>
+
+            <div class="error-scenarios">
+                <div class="scenarios-label">Error Scenarios Handled</div>
+
+                <div class="error-box critical">
+                    <div class="error-title">🔴 No Internet Connection</div>
+                    <div class="error-description">Network unavailable or device offline</div>
+                    <div class="error-feedback">User sees: "Check your internet connection"</div>
+                </div>
+
+                <div class="error-box critical">
+                    <div class="error-title">🔴 Invalid Coordinates</div>
+                    <div class="error-description">Latitude/longitude outside valid ranges</div>
+                    <div class="error-feedback">User sees: "Invalid location coordinates"</div>
+                </div>
+
+                <div class="error-box warning">
+                    <div class="error-title">🟠 API Timeout</div>
+                    <div class="error-description">Request exceeds 30-second timeout</div>
+                    <div class="error-feedback">User sees: "Request timed out, try again"</div>
+                </div>
+
+                <div class="error-box warning">
+                    <div class="error-title">🟠 JSON Parsing Error</div>
+                    <div class="error-description">Malformed API response or schema mismatch</div>
+                    <div class="error-feedback">User sees: "Failed to parse weather data"</div>
+                </div>
+
+                <div class="error-box info">
+                    <div class="error-title">🔵 Retry Functionality</div>
+                    <div class="error-description">Error screen displays retry button</div>
+                    <div class="error-feedback">User can retry without restarting app</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

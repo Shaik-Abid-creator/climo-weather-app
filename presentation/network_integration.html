@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-line {
+            width: 60px;
+            height: 4px;
+            background: #0284C7;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            flex: 1;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .code-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .code-label {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #0284C7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .code-block {
+            border: 2px solid #111827;
+            padding: 16px;
+            background: #F9FAFB;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 11px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.6;
+            overflow-x: auto;
+            min-height: 180px;
+            max-height: 280px;
+        }
+
+        .config-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .config-box {
+            border: 2px solid #111827;
+            padding: 16px;
+            background: #FFFFFF;
+        }
+
+        .config-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #0284C7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .config-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .config-detail {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 11px;
+            color: #0284C7;
+            margin-top: 6px;
+            word-break: break-all;
+        }
+
+        .highlight {
+            color: #0284C7;
+            font-weight: 600;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #0284C7;
+            bottom: -60px;
+            left: -60px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .geometric-accent-2 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #0284C7;
+            top: 100px;
+            right: -80px;
+            opacity: 0.04;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-accent"></div>
+        <div class="geometric-accent-2"></div>
+        
+        <div class="header">
+            <h1 class="title">Network Integration</h1>
+            <div class="subtitle-line"></div>
+        </div>
+
+        <div class="content">
+            <div class="code-section">
+                <div class="code-label">WeatherService Interface</div>
+                <div class="code-block">@GET("forecast")
+suspend fun getWeather(
+    @Query("latitude") latitude: Double,
+    @Query("longitude") longitude: Double,
+    @Query("current") current: String,
+    @Query("daily") daily: String,
+    @Query("timezone") timezone: String
+): WeatherResponse</div>
+            </div>
+
+            <div class="config-section">
+                <div class="config-box">
+                    <div class="config-title">Base URL</div>
+                    <div class="config-detail">https://api.open-meteo.com/v1/</div>
+                </div>
+
+                <div class="config-box">
+                    <div class="config-title">Serialization</div>
+                    <div class="config-text">Kotlinx Serialization with automatic JSON parsing</div>
+                </div>
+
+                <div class="config-box">
+                    <div class="config-title">HTTP Client</div>
+                    <div class="config-text">OkHttp with <span class="highlight">30-second</span> timeouts for reliability</div>
+                </div>
+
+                <div class="config-box">
+                    <div class="config-title">Authentication</div>
+                    <div class="config-text"><span class="highlight">No API key required</span> — Open-Meteo is free and open-source</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
